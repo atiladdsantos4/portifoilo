@@ -1,3 +1,5 @@
+var link = document.currentScript.getAttribute('link_gerencia');
+console.log(link);
 $(document).on('click','.btn-autentica,.btn-param,.bi-zoom-in',function(){//interface_admin
     
     if( $(this).hasClass("bi-zoom-in") ){
@@ -16,7 +18,6 @@ $(document).on('click','.btn-autentica,.btn-param,.bi-zoom-in',function(){//inte
         let id_ref = $(this).attr("id");
         let id = id_ref.split('-');
         let valor = $(this).parent().find('input').val();
-        //let host = $(location).attr('hostname')+caminho.substring(0,posicao+9)+'/admin/'+id[1]+'/modifica_param';
         let host = $(location).attr('hostname')+caminho+'/'+id[1]+'/modifica_param';
         let protocolo = $(location).attr('protocol'); 
         let url = protocolo +'//'+host;
@@ -59,15 +60,18 @@ $(document).on('click','.btn-autentica,.btn-param,.bi-zoom-in',function(){//inte
     }
     if( $(this).hasClass("btn-autentica") ){
         console.log('teste');
+        console.log($(location));
         var dadosForm = [];
         dadosForm.push(
            {'name': '_token','value': $("input[name=_token]").val()},
            {'name': 'email','value': $("#aut_email").val()},
            {'name': 'senha','value': $("#aut_senha").val()}  
         );
-        let host = $(location).attr('hostname')+'/projetos/portifolio/public/index.php';
-        let protocolo = $(location).attr('protocol'); 
-        let url = protocolo +'//' + host+'/admin/autentica'  
+        // let host = $(location).attr('hostname')+'/projetos/portifolio/public/index.php';
+        // let protocolo = $(location).attr('protocol'); 
+        // let url = protocolo +'//' + host+'/admin/autentica';  
+        // modificação passando" "link" via parametro de script // 
+        let url = link;
         $.post(url, dadosForm, function(resultado) {
         }, 'json')
         .done(function(resultado) {
@@ -91,10 +95,7 @@ $(document).on('click','.btn-autentica,.btn-param,.bi-zoom-in',function(){//inte
                     $("#alert_id").removeClass('show').removeClass('alert-danger');
                     $("#alert_id").addClass('alert-primary');
                     $("#alert_id").css("z-index","50");
-                    //location.reload();
                 }, 2000); 
-                // $('.modal-error').modal('show');              
-                // $('.modal-error').modal('show'); 
             }
         })
         .always(function(resultado) {

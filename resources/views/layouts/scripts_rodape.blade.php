@@ -11,6 +11,12 @@
   <!-- Template Main JS File -->
   <!-- Passando Parametros para o Script -->
   <!-- Ver Conteúdo do main.js -->
-  <script src="{{asset("assets/js/main.js")}}" link="{{route('home.geral',[ 'interface'=>'contact'])}}"></script>
-  <script src="{{asset("assets/js/site.js")}}"></script>
+  <script src="{{asset("assets/js/main.js")}}" 
+     link="{{route('home.geral',[ 'interface'=>'contact'])}}"
+  >
+  </script>
+  <script 
+    src="{{asset("assets/js/site.js")}}" link_gerencia = "{{route('admin.autentica')}}"
+  >
+  </script>
   

@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-  $dir    = 'C:\\Apache24\\htdocs\\projetos\\portifolio\\public\\assets\\img\\portfolio'; 
-  //$dir    = '/home/storage/d/36/b7/addssistemas1/public_html/crisalida/public/assets/img/portfolio';
-  $files1 = scandir($dir);
+   $caminho = getcwd();
+   echo $caminho;
+   if (str_contains($caminho,'home')){
+     $dir  = '/home/storage/d/36/b7/addssistemas1/public_html/crisalida/public/assets/img/portfolio';
+   } elseif (str_contains($caminho,'htdocs')){
+     $dir  = 'C:\\Apache24\\htdocs\\projetos\\portifolio\\public\\assets\\img\\portfolio';  
+   }  
+   $files1 = scandir($dir);
 ?>
 <head>
   @include('layouts.header_scripts',['titulo'=>'Portifólio'])
@@ -71,10 +76,8 @@
 
   </main><!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    <footer id="footer" class="footer">
-   @include('layouts.rodape')
-</footer><!-- End Footer -->
+  <!-- ======= Footer ======= -->
+  @include('layouts.footer')
   <!-- End Footer -->
   <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 

@@ -1,0 +1,17 @@
+SHOW VARIABLES LIKE 'validate_password%';
+
+reinicar com skip-gtants-tables
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '@Tavora5@';
+ALTER USER 'root'@'%' IDENTIFIED BY '@Tavora5@';
+
+ALTER USER 'atila'@'localhost' IDENTIFIED BY '@Tavora5@';
+ALTER USER 'atila'@'%' IDENTIFIED BY '@Tavora5@';
+
+useradd sambauser -s /sbin/nologin
+
+.smb.conf.swp	
+systemctl enable smb.service
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '@Tavora5@';

@@ -23,7 +23,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sair</button>
-        <button type="button" class="btn-autentica btn btn-primary">Autenticar</button>
+        <button type="button" class="btn-autentica btn btn-primary">
+           <span style="visibility: hidden;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+           Autenticar
+        </button>
       </div>
     </div>
   </div>

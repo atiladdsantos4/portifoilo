@@ -12,4 +12,4 @@
   <!-- Template Main JS File -->
   <script src="{{asset('admin/assets/js/main.js')}}"></script>
   <!-- Customizações JS File -->
-  <script src="{{asset('assets/js/site.js')}}"></script>
+  <script src="{{asset("assets/js/site.js")}}" link_admin = "{{route('admin.geral')}}"></script>

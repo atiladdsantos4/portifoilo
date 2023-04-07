@@ -48,11 +48,6 @@
         </div>
       </div>
     </section>
-    <!-- <div style="position:absolute;top:50px;left:0;right:0;max-width:500px;margin: auto;" id="alert_id_admin" class="alert alert-primary alert-dismissible fade" role="alert"> -->
-    <!-- <div style="position:fixed;left:50%;top:50%;max-width:500px;margin: 0 auto;" id="alert_id_admin" class="alert alert-primary alert-dismissible fade" role="alert"> 
-      <span id="alert_text">A simple primary alert—check it out!</span>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div> -->
 
 @endsection    
 

@@ -34,24 +34,18 @@
     <div class="container">
       <div class="row">
         <div class="col-xl-4">
-          <h2 class="main" data-aos="fade-up">Focamos no que interessa</h2>
+          <!-- <h2 class="main" data-aos="fade-up">Focamos no que interessa</h2> -->
+          <h2 id="homeid1" class="main" data-aos="fade-up">{{$conteudo[0]->cdo_conteudo}}</h2>
           <blockquote data-aos="fade-up" data-aos-delay="100">
-            <p>De acordo com a definição da Organização Mundial de Saúde, 
-              a dependência química é uma doença caracterizada pelo uso 
-              descontrolado de uma ou mais substâncias psicoativas, ou seja, 
-              que causam mudanças no estado mental da pessoa. 
-              Dependência química tem tratamento e controle,  e esse é o nosso foco.</p>
+            <p id="homeid2">{{$conteudo[1]->cdo_conteudo}}</p>
           </blockquote>
           <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
             <a href="{{route('home.geral',[ 'interface'=>'about'])}}" class="btn-get-started">Vamos Iniciar</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Assista o Video</span></a>
+            <a href="{{asset('assets\videos\video_inicio.mp4')}}" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Assista o Video</span></a>
           </div>
-          <div class="d-flex" data-aos="fade-up" data-aos-delay="200" style="color:white;">
+          <div id="homeid3" class="d-flex" data-aos="fade-up" data-aos-delay="200" style="color:white;">
             <br>
-            "Deus, conceda-me a serenidade
-             para aceitar as coisas que não posso modificar,
-             a coragem para modificar aquelas que posso
-             e a sabedoria para reconhecer a diferença."
+            {{$conteudo[2]->cdo_conteudo}}
           </div>  
         </div>
       </div>
@@ -65,7 +59,7 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Por que Nos Escolher</h2>
+          <h2>{{$conteudo[3]->cdo_conteudo}}</h2>
 
         </div>
 

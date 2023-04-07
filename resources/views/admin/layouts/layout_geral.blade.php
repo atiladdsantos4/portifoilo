@@ -21,6 +21,20 @@
       <span id="alert_text">A simple primary alert—check it out!</span>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
-
 </body>
 </html>
+<!-- toast -- geral -->
+<div class="toast-container top-50 start-50 translate-middle-x p-3" id="toastPlacement">
+    <div class="toast">
+      <div class="toast-header" style="background-color:#1B2F45;">
+        <strong class="me-auto">Painel de Controle - Mensagem</strong>
+        <small><i class="bi bi-exclamation-triangle"></i></small>
+      </div>
+      <div class="toast-body" style="background-color:#FBFEE4;">
+        Conteúdo alterado com sucesso!!! 
+      </div>
+    </div>
+  </div>
+<!-- fim - toast -- geral -->
+
+@yield('scripts_page')

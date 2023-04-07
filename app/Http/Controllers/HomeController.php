@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classes\Parametros;
+use App\Models\Conteudo;
 use Mail;
 
 class HomeController extends Controller
@@ -25,6 +26,19 @@ class HomeController extends Controller
             return view('home.index',['parametros' => $parametros]); 
         } else {
             $view = 'home.'.$request->interface;
+            switch ($request->interface) {
+                  case 'index':
+                    session_start();
+                    $conteudo = Conteudo::where('cdo_id_int','=',1)->orderBy('cdo_id_cdo')->get();  
+                    return view($view,['parametros' => $parametros,'conteudo' => $conteudo]);
+                    break;
+                  default:
+                    // session_start();
+                    // $TipoConteudo = TipoConteudo::orderBy('tpc_desc_tpc')->get();
+                    // $TelaMenu = TelaMenu::select('int_id_int','int_nome')->orderBy('int_nome')->get();
+                    // $conteudo = Conteudo::where('cdo_id_int','=',1)->orderBy('cdo_id_cdo')->get();  
+                    // return view($view,['conteudo' => $conteudo]);
+             }
             return view($view,['parametros' => $parametros]);
         }
         

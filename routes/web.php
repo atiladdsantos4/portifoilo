@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Classes\Parametros;
+use App\Models\Conteudo;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,13 @@ Route::get('/', function () {
         "titulo_blog" => Parametros::TITULO_CONTATO,   
         "endereco" => Parametros::ENDERECO,   
     ];
-    return view('home.index',['parametros' => $parametros]); 
+    $conteudo = Conteudo::where('cdo_id_int','=',1)->orderBy('cdo_id_cdo')->get();  
+    $vetor = [];
+    for( $i = 0; $i < count($conteudo); $i++){
+      $vetor[$conteudo[$i]->cdo_id_conteudo] = $conteudo[$i]->cdo_conteudo; 
+       
+    }
+    return view('home.index',['parametros' => $parametros,"conteudo" => $conteudo]); 
 });
 
 Route::get('/home', function () {
@@ -55,9 +62,10 @@ Route::prefix('home')->group(function ($interface) {
 });
 
 Route::prefix('admin')->group(function ($interface) {
-
     Route::get('/', [App\Http\Controllers\AdminController::class, 'home'])->name('admin.geral'); 
     Route::get('/sair', [App\Http\Controllers\AdminController::class, 'sair'])->name('admin.sair');
     Route::post('/autentica', [App\Http\Controllers\AdminController::class, 'autentica'])->name('admin.autentica'); 
     Route::post('{params}/modifica_param', [App\Http\Controllers\AdminController::class, 'modifica_param'])->name('admin.modifica_param'); 
+    Route::post('{params}/modifica_interface', [App\Http\Controllers\AdminController::class, 'modifica_interface'])->name('admin.modifica_interface'); 
+    Route::post('/modifica_imagem', [App\Http\Controllers\AdminController::class, 'modifica_imagem'])->name('admin.modifica_imagem'); 
 });
